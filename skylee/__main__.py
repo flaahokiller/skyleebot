@@ -8,7 +8,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryH
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 
-from skylee import (
+from saber import (
     dispatcher,
     updater,
     TOKEN,
@@ -24,34 +24,22 @@ from skylee import (
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from skylee.modules import ALL_MODULES
-from skylee.modules.purge import client
-from skylee.modules.helper_funcs.chat_status import is_user_admin
-from skylee.modules.helper_funcs.misc import paginate_modules
-from skylee.modules.helper_funcs.alternate import typing_action
+from saber.modules import ALL_MODULES
+from saber.modules.purge import client
+from saber.modules.helper_funcs.chat_status import is_user_admin
+from saber.modules.helper_funcs.misc import paginate_modules
+from saber.modules.helper_funcs.alternate import typing_action
 
 
-PM_START_TEXT = f"""
-Hey there! my name is *{dispatcher.bot.first_name}*. If you have any questions on how to use me, Click Help button.
+PM_START_TEXT = """
+Hi {}, My name is {} ! 
+"I'm a part of the Fate Union and can easily manage your groups."
+𝓘 𝓪𝓶 𝒜𝓇𝓉𝑜𝓇𝒾𝒶 𝒫𝑒𝓃𝒹𝓇𝒶𝑔𝑜𝓃 𝓽𝓱𝓮 𝓼𝔀𝓸𝓻𝓭 𝓱𝓮𝓻𝓸  𝓸𝓷𝓮 𝓸𝓯 𝓽𝓱𝓮 𝓗𝓮𝓻𝓸 𝓸𝓯 𝓱𝓸𝓵𝔂 𝓰𝓻𝓪𝓲𝓵 𝔀𝓪𝓻 𝓘 𝓪𝓶 𝓼𝓾𝓶𝓶𝓸𝓷𝓮𝓭 𝓫𝔂 𝓶𝔂 𝓶𝓪𝓼𝓽𝓮𝓻 𝓽𝓸 𝓱𝓮𝓵𝓹 𝓱𝓲𝓶
+I HOPE I'LL BE ABLE TO MAINTAIN YOUR GROUP!
+Click on the help button below to get help supported module.
 
-I'm here to make your group management fun and easy!
-i have lots of handy features, such as flood control, a warning system, a note keeping system, and even replies on predetermined filters.
-
-Any issues or need help related to me? join our group [skylee support chat](https://t.me/skyleebot).
-
-Wanna Add me to your Group? Just click the button below!
 """
-
-buttons = [
-    [
-        InlineKeyboardButton(
-            text="Add to Group 👥", url="t.me/skylee_bot?startgroup=true"
-        ),
-        InlineKeyboardButton(text="Updates 📢", url="https://t.me/skyleebot"),
-    ]
-]
-
-buttons += [[InlineKeyboardButton(text="Help & Commands ❔", callback_data="help_back")]]
+BOT_IMG = "https://telegra.ph/file/98cb413468829dc59a74c.mp4"
 
 
 HELP_STRINGS = f"""
@@ -82,7 +70,7 @@ USER_SETTINGS = {}
 GDPR = []
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("skylee.modules." + module_name)
+    imported_module = importlib.import_module("saber.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -164,18 +152,36 @@ def start(update, context):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_photo(
-                "https://telegra.ph/file/4edfb3738a35bdfa1922f.jpg",
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_animation(
+                BOT_IMG,
+                caption=PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=True,
-            )
+                reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton(
+                            text="Add saber to your group",
+                            url="t.me/{}?startgroup=true".format(bot.username))
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Support Chat ",
+                            url=f"https://t.me/fateUnion"),
+                        InlineKeyboardButton(
+                            text="Updates ",
+                            url="https://t.me/fateunionupdates")
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="help",
+                            callback_data="help_back")
+                    ]]))
+                                                                 
+
+
     else:
-        update.effective_message.reply_text(
-            "Sending you a warm hi & wishing your day is a happy one!"
-        )
+        update.effective_message.reply_text("HI, Why u summoned me")
+
 
 
 def error_handler(update, context):
