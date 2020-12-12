@@ -2,7 +2,7 @@ import telegram.ext as tg
 from telegram import Update
 
 try:
-    from skylee import CUSTOM_CMD
+    from saber import CUSTOM_CMD
 except:
     CUSTOM_CMD = False
 
