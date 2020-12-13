@@ -8,23 +8,23 @@ from telegram.ext import CommandHandler, Filters
 from telegram.ext.dispatcher import run_async
 from telegram.utils.helpers import mention_html
 
-from skylee import dispatcher
-from skylee.modules.disable import DisableAbleCommandHandler
+from saber import dispatcher
+from saber.modules.disable import DisableAbleCommandHandler
 from skylee.modules.helper_funcs.chat_status import (
     bot_admin,
     can_promote,
     user_admin,
     can_pin,
 )
-from skylee.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from skylee.modules.helper_funcs.admin_rights import (
+from saber.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from saber.modules.helper_funcs.admin_rights import (
     user_can_pin,
     user_can_promote,
     user_can_changeinfo,
 )
-from skylee.modules.helper_funcs.alternate import typing_action
-from skylee.modules.connection import connected
-from skylee.modules.log_channel import loggable
+from saber.modules.helper_funcs.alternate import typing_action
+from saber.modules.connection import connected
+from saber.modules.log_channel import loggable
 
 
 @run_async
@@ -73,7 +73,7 @@ def promote(update, context):
         can_pin_messages=bot_member.can_pin_messages,
     )
 
-    message.reply_text("Promoted🧡")
+    message.reply_text("Promoted to admin")
     return (
         "<b>{}:</b>"
         "\n#PROMOTED"
