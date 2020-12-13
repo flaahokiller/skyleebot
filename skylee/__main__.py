@@ -36,7 +36,7 @@ Hi {}, My name is {} !
 "I'm a part of the Fate Union and can easily manage your groups."
 𝓘 𝓪𝓶 𝒜𝓇𝓉𝑜𝓇𝒾𝒶 𝒫𝑒𝓃𝒹𝓇𝒶𝑔𝑜𝓃 𝓽𝓱𝓮 𝓼𝔀𝓸𝓻𝓭 𝓱𝓮𝓻𝓸  𝓸𝓷𝓮 𝓸𝓯 𝓽𝓱𝓮 𝓗𝓮𝓻𝓸 𝓸𝓯 𝓱𝓸𝓵𝔂 𝓰𝓻𝓪𝓲𝓵 𝔀𝓪𝓻 𝓘 𝓪𝓶 𝓼𝓾𝓶𝓶𝓸𝓷𝓮𝓭 𝓫𝔂 𝓶𝔂 𝓶𝓪𝓼𝓽𝓮𝓻 𝓽𝓸 𝓱𝓮𝓵𝓹 𝓱𝓲𝓶
 I HOPE I'LL BE ABLE TO MAINTAIN YOUR GROUP!
-Click on the help button below to get help supported module.
+Click on the help button below to get help on the supported module.
 
 """
 BOT_IMG = "https://telegra.ph/file/98cb413468829dc59a74c.mp4"
@@ -44,7 +44,7 @@ BOT_IMG = "https://telegra.ph/file/98cb413468829dc59a74c.mp4"
 
 HELP_STRINGS = f"""
 Hello there! My name is *{dispatcher.bot.first_name}*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
+I'm a modular group management bot with fun extras! Have a look at the following for an idea of some of \
 the things I can help you with.
 
 *Main* commands available:
