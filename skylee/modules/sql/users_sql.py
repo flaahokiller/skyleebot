@@ -10,8 +10,8 @@ from sqlalchemy import (
     func,
 )
 
-from skylee import dispatcher
-from skylee.modules.sql import BASE, SESSION
+from saber import dispatcher
+from saber.modules.sql import BASE, SESSION
 
 
 class Users(BASE):
