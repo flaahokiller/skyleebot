@@ -12,7 +12,7 @@ from saber.modules.sql import afk_sql as sql
 from saber.modules.users import get_user_id
 
 from saber.modules.helper_funcs.alternate import send_message
-import skylee.modules.helper_funcs.fun_strings as fun
+import saber.modules.helper_funcs.fun_strings as fun
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
