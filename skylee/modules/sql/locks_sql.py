@@ -3,7 +3,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from skylee.modules.sql import SESSION, BASE
+from saber.modules.sql import SESSION, BASE
 
 
 class Permissions(BASE):
