@@ -6,12 +6,12 @@ from telegram import MessageEntity, ParseMode
 from telegram.error import BadRequest
 from telegram.ext import Filters, MessageHandler, run_async
 
-from skylee import dispatcher
-from skylee.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
-from skylee.modules.sql import afk_sql as sql
-from skylee.modules.users import get_user_id
+from saber import dispatcher
+from saber.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
+from saber.modules.sql import afk_sql as sql
+from saber.modules.users import get_user_id
 
-from skylee.modules.helper_funcs.alternate import send_message
+from saber.modules.helper_funcs.alternate import send_message
 import skylee.modules.helper_funcs.fun_strings as fun
 
 AFK_GROUP = 7
